@@ -1,0 +1,22 @@
+package com.example.demo.coreproject;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import ch.qos.logback.core.Context;
+
+@SpringBootApplication
+public class SpringCoreProjectApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringCoreProjectApplication.class, args);
+		System.out.println("running");
+		Person p1 = Context.getBean(Person.class);
+		p1.show();
+//		
+//		Person p2 = Context.getBean(Person.class);
+//		p2.show();
+		
+	}
+
+}

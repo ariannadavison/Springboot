@@ -1,0 +1,47 @@
+package com.example.demo.coreproject;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+import javax.sql.DataSource;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+
+
+import com.mysql.jdbc.jdbc2.optional.Datasource;
+public class Datasource {
+	String user;
+	String password;
+	String url;
+	Properties props = new Properties();
+	FileInputStream fis = null;
+	Datasource mysqlDS = null;
+	try {
+		fis = new FileInputStream("db.properties");
+		props.load(fis);
+		mysqlDS = new Datasource();
+		mysqlDS.setURL(props.getProperty("MYSQL_DB_URL"));
+		mysqlDS.setUser(props.getProperty("MYSQL_DB_USERNAME"));
+		mysqlDS.setPassword(props.getProperty("MYSQL_DB_PASSWORD"));
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	private void setPassword(String property) {
+		// TODO Auto-generated method stub
+this.password = property;
+	}
+	private void setURL(String property) {
+		// TODO Auto-generated method stub
+		this.url = property;
+	}
+	private void setUser(String property) {
+		// TODO Auto-generated method stub
+		this.user = property;
+	}
+	return mysqlDS;
+}

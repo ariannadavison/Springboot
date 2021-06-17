@@ -1,0 +1,55 @@
+package com.example.demo.coreproject;
+
+import java.util.Scanner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.springframework.context.ConfigurableApplicationContext;
+
+import ch.qos.logback.core.Context;
+
+@SpringBootApplication
+public class SpringCoreProjectApplication {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext Context = SpringApplication.run(SpringCoreProjectApplication.class, args);
+//		SpringApplication.run(SpringCoreProjectApplication.class, args);
+		System.out.println("running");
+		Person p1 = Context.getBean(Person.class);
+		Laptop lt1 = Context.getBean(Laptop.class);
+		Employee emp1 = Context.getBean(Employee.class);
+		Address addr1 = Context.getBean(Address.class);
+//		p1.show();
+//		lt1.printBrand();
+
+		Scanner scan = new Scanner(System.in);
+		System.out.println("ID: ");
+		p1.setId(scan.nextInt());
+		System.out.println("Name: ");
+		p1.setName(scan.next());
+		System.out.println("Title: ");
+		emp1.setTitle(scan.next());
+		System.out.println("Status: ");
+		emp1.setStatus(scan.next());
+		System.out.println("House No: ");
+		addr1.setHouseNo(scan.nextInt());
+
+		System.out.println("City: ");
+		addr1.setCity(scan.nextLine());
+		System.out.println("State: ");
+		addr1.setState(scan.next());
+		System.out.println("Zipcode: ");
+		addr1.setZipcode(scan.nextInt());
+		System.out.println(addr1.getStreet());
+		addr1.setStreet(scan.next());
+		System.out.println("Name: ");
+		System.out.println(p1.getName());
+		System.out.println("Title: ");
+		System.out.println(emp1.getTitle());
+		System.out.println("Status: ");
+		System.out.println(emp1.getStatus());
+
+	}
+
+}

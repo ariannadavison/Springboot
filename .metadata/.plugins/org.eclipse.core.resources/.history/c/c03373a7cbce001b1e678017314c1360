@@ -1,0 +1,65 @@
+package com.example.demo.coreproject;
+
+import java.beans.Statement;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Cache.Connection;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import ch.qos.logback.core.Context;
+
+@SpringBootApplication
+public class SpringCoreProjectApplication {
+	public static void main(String[] args) throws SQLException {
+		ConfigurableApplicationContext Context = SpringApplication.run(SpringCoreProjectApplication.class, args);
+//		SpringApplication.run(SpringCoreProjectApplication.class, args);
+		System.out.println("running");
+		Person p1 = Context.getBean(Person.class);
+		Laptop lt1 = Context.getBean(Laptop.class);
+		Employee emp1 = Context.getBean(Employee.class);
+		p1.show();
+		lt1.printBrand();
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("ID: ");
+		p1.setId(scan.nextInt());
+		System.out.println("Name: ");
+		p1.setName(scan.next());
+		System.out.println("Title: ");
+		emp1.setTitle(scan.next());
+		System.out.println("Status: ");
+		emp1.setStatus(scan.next());
+		System.out.println("Name: ");
+		System.out.println(p1.getName());
+		System.out.println("Title: ");
+		System.out.println(emp1.getTitle());
+		System.out.println("Status: ");
+		System.out.println(emp1.getStatus());
+		int rowCount = 0;
+//		
+//		Person p2 = Context.getBean(Person.class);
+//		p2.show();
+		java.sql.Connection conn = DriverManager.getConnection(
+	               "jdbc:mysql://localhost:3306/mysql");   // For MySQL only
+	
+		  java.sql.Statement stmt = conn.createStatement();
+String str = "SELECT newwords;";
+ResultSet result = stmt.executeQuery(str);
+
+while(result.next()) {   // Repeatedly process each row
+    String title = result.getString("title");  // retrieve a 'String'-cell in the row
+    double price = result.getDouble("price");  // retrieve a 'double'-cell in the row
+    int    qty   = result.getInt("qty");       // retrieve a 'int'-cell in the row
+    System.out.println(title + ", " + price + ", " + qty);
+    
+	++rowCount;
+ }
+System.out.println("Total number of records = " + rowCount);
+System.out.println(result);
+}
+}
