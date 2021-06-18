@@ -30,6 +30,8 @@ public String getStreet() {
 public void setStreet(String street) {
 	this.street = street;
 }
+
+
 public int getZipcode() {
 	return zipcode;
 }
@@ -54,7 +56,8 @@ char carraige = 13;
 }
 public boolean isNYAddress() {
 	return this.zipcode > 1000 &&  this.zipcode < 14976;
+		
+	
+	
 }
-
-
 }

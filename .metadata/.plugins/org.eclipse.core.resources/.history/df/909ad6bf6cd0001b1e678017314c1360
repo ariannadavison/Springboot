@@ -8,7 +8,6 @@ public class Employee {
 //String title;
 private String status;
 private double salary;
-private int grade;
 //@Autowired
 
 //public void setTitle(String title) {
@@ -33,30 +32,6 @@ public String getStatus() {
  public double getSalary() {
 	 return salary;
  }
- public void setGrade(int grade) {
-	 this.grade = grade;
- }
- public int getGrade() {
-	 return grade;
- }
  
- public String ages() {
-	 return "Ages " + (grade +5) + " and " + (grade +6);
- }
- 
- public void educationLevel() {
-	 String level;
-	 if(grade < 5) {
-		 level = "Elementary";
- 
-	 }
-	 else if(grade < 9) {
-		 level = "Middle";
-	 }
-	 else {
-		 level = "High School";
-	 }
- System.out.println("Education Level: " + level);
- }
  
 }

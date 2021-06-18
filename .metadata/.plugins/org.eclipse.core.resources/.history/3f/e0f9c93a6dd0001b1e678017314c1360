@@ -45,21 +45,16 @@ public class SpringCoreProjectApplication {
 //
 		System.out.println("Zipcode: ");
 		p1.addr1.setZipcode(scan.nextInt());
-		System.out.println("Grade: ");
-		p1.getEmployee().setGrade(scan.nextInt());
-		System.out.println("Staff Directory" );
-		System.out.println("___________________");
+		
 		System.out.println("Name: ");
 		System.out.println(p1.getName());
 		System.out.println("Title: ");
 		System.out.println(p1.getTitle());
 //		System.out.println("Status: ");
 //		System.out.println(emp1.getStatus());
-		System.out.println("___________________");
 		System.out.println(p1.getAddress());
 		System.out.println("Is New York Address?: " + p1.addr1.isNYAddress());
-		System.out.println(p1.getEmployee().ages());
-		p1.getEmployee().educationLevel();
+		System.out.println(p1.getEmployee().getGrade());
 
 
 	}

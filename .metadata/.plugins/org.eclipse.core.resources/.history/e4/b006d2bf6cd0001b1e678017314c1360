@@ -47,5 +47,4 @@ public String getAddress() {
 public Employee getEmployee() {
 	return emp1;
 }
-
 }
